@@ -20,14 +20,12 @@ func NewCreateAsignature(asignatureRepo domain.INotification, serviceNotificatio
 }
 
 func (c *CreateAsignature) Execute(asignature entities.Notification) error {
-	// Enviar la notificación usando asignatureRepo
 	err := c.asignatureRepo.Send(asignature)
 	if err != nil {
 		return err
 	}
 
-	// Usar el serviceNotification para publicar el evento
-	err = c.serviceNotification.PublishEvent("AsignatureCreated", asignature) // Usa 'asignature' en lugar de 'created'
+	err = c.serviceNotification.PublishEvent("AsignatureCreated", asignature)
 	if err != nil {
 		log.Printf("Error notificando sobre la asignatura creada: %v", err)
 		return err

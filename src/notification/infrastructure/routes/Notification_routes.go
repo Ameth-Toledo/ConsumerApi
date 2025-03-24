@@ -11,5 +11,4 @@ func ConfigureRoutesAsignature(
 
 ) {
 	r.POST("/send-notification", createAsignatureController.Execute)
-
 }

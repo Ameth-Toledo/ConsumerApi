@@ -9,7 +9,6 @@ type ServiceNotification struct {
 	imageService IMessageService
 }
 
-// NewServiceNotification creates a new ServiceNotification instance
 func NewServiceNotification(imageService IMessageService) *ServiceNotification {
 	return &ServiceNotification{imageService: imageService}
 }
